@@ -1,0 +1,3 @@
+Lã,Camisa de lã.,20.2
+Lã2,camisa de lã 2.,30.5
+Lã 3,Camiseta de lã 3.,50.98
