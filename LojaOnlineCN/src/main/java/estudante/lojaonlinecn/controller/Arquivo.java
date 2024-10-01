@@ -25,7 +25,7 @@ public class Arquivo {
             BufferedWriter bw = new BufferedWriter(osw);    
 
             String linha = camisa.getNomeCamisa() + "," + camisa.getDescricaoCamisa() + "," +
-                    camisa.getPrecoCamisa();
+                    camisa.getPrecoCamisa() + "," + camisa.getCorCamisa() + "," + camisa.getTamanhoCamisa();
 
             bw.write(linha);
             bw.newLine();

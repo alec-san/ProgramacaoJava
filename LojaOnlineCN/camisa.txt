@@ -1,3 +1,6 @@
 Lã,Camisa de lã.,20.2
 Lã2,camisa de lã 2.,30.5
 Lã 3,Camiseta de lã 3.,50.98
+Batman Begins,Serie Batman Begins,20.3
+Quíntuplas,Camisa do Mangá Quíntuplas,20.5,Azul,M
+Camisa Social,Camisa Social de linho,50.98,P,M
