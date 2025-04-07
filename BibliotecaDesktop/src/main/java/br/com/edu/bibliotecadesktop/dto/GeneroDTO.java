@@ -11,7 +11,8 @@ package br.com.edu.bibliotecadesktop.dto;
 public class GeneroDTO {
 
     public Long id;
-    public String tipo;
+    public String nome;
+    public String descricao;
 
     public Long getId() {
         return id;
@@ -21,11 +22,19 @@ public class GeneroDTO {
         this.id = id;
     }
 
-    public String getTipo() {
-        return tipo;
+    public String getNome() {
+        return nome;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 }

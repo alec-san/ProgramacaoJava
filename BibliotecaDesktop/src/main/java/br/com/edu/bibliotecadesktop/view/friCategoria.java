@@ -123,25 +123,24 @@ public class friCategoria extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnLimpar)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2))
                         .addGap(18, 18, 18)
-                        .addComponent(btnCadastrarCategoria)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnEditarCategoria)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnRemoverCategoria))
-                    .addComponent(txtIdCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNomeCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(28, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnLimpar)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnCadastrarCategoria)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnEditarCategoria)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnRemoverCategoria))
+                            .addComponent(txtIdCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNomeCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -232,7 +231,7 @@ public class friCategoria extends javax.swing.JInternalFrame {
         //
         CategoriaDTO categoriaDto = new CategoriaDTO();
         categoriaDto.setId(idCategoria);
-        categoriaDto.setTipo(nomeCategoria);
+        categoriaDto.setNome(nomeCategoria);
         //
         CategoriaDAO categoriaDao = new CategoriaDAO();
         categoriaDao.AtualizarCategoria(categoriaDto);
@@ -242,7 +241,7 @@ public class friCategoria extends javax.swing.JInternalFrame {
         // coleta o dado do textfield
         String nomeCategoria = txtNomeCategoria.getText();
         CategoriaDTO categoriaDto = new CategoriaDTO();
-        categoriaDto.setTipo(nomeCategoria);
+        categoriaDto.setNome(nomeCategoria);
         //
         CategoriaDAO categoriaDao = new CategoriaDAO();
         categoriaDao.CadastrarCategoria(categoriaDto);
@@ -257,7 +256,7 @@ public class friCategoria extends javax.swing.JInternalFrame {
             for (int i = 0; i < lista.size(); i++) {
                 tabela.addRow(new Object[]{
                     lista.get(i).getId(),
-                    lista.get(i).getTipo() //nome da categoria
+                    lista.get(i).getNome() //nome da categoria
                 });
             }
         } catch (Exception erro) {

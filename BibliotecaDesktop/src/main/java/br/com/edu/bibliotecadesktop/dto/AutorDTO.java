@@ -13,6 +13,7 @@ public class AutorDTO {
     private Long id;
     private String nome;
     private String pseudonimo;
+    private String nacionalidade;
 
     public Long getId() {
         return id;
@@ -36,5 +37,13 @@ public class AutorDTO {
 
     public void setPseudonimo(String pseudonimo) {
         this.pseudonimo = pseudonimo;
+    }
+
+    public String getNacionalidade() {
+        return nacionalidade;
+    }
+
+    public void setNacionalidade(String nacionalidade) {
+        this.nacionalidade = nacionalidade;
     }
 }

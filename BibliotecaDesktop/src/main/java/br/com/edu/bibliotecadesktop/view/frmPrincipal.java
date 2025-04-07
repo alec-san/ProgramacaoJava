@@ -28,12 +28,15 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         desktop = new javax.swing.JDesktopPane();
         Menu = new javax.swing.JMenuBar();
+        mnuConsulta = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         mnuCadastro = new javax.swing.JMenu();
         mnuAutor = new javax.swing.JMenuItem();
         mnuCategoria = new javax.swing.JMenuItem();
         mnuEditora = new javax.swing.JMenuItem();
         mnuGenero = new javax.swing.JMenuItem();
         mnuLivro = new javax.swing.JMenuItem();
+        mnuVolume = new javax.swing.JMenuItem();
         mnuOpcoes = new javax.swing.JMenu();
         mnuSair = new javax.swing.JMenuItem();
         mnuAjuda = new javax.swing.JMenu();
@@ -52,8 +55,15 @@ public class frmPrincipal extends javax.swing.JFrame {
         );
         desktopLayout.setVerticalGroup(
             desktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 611, Short.MAX_VALUE)
+            .addGap(0, 711, Short.MAX_VALUE)
         );
+
+        mnuConsulta.setText("Consulta");
+
+        jMenuItem1.setText("jMenuItem1");
+        mnuConsulta.add(jMenuItem1);
+
+        Menu.add(mnuConsulta);
 
         mnuCadastro.setText("Cadastro");
 
@@ -102,6 +112,15 @@ public class frmPrincipal extends javax.swing.JFrame {
         });
         mnuCadastro.add(mnuLivro);
 
+        mnuVolume.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.ALT_DOWN_MASK));
+        mnuVolume.setText("Volume");
+        mnuVolume.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuVolumeActionPerformed(evt);
+            }
+        });
+        mnuCadastro.add(mnuVolume);
+
         Menu.add(mnuCadastro);
 
         mnuOpcoes.setText("Opções");
@@ -127,7 +146,7 @@ public class frmPrincipal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(desktop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 154, Short.MAX_VALUE))
+                .addGap(0, 232, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,7 +156,7 @@ public class frmPrincipal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        setSize(new java.awt.Dimension(1022, 693));
+        setSize(new java.awt.Dimension(1100, 791));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -146,7 +165,10 @@ public class frmPrincipal extends javax.swing.JFrame {
         friEditora editora = new friEditora();
         editora.setVisible(true);
         desktop.add(editora);
-
+        try {
+            editora.setSelected(true);
+        } catch (java.beans.PropertyVetoException e) {
+        }
     }//GEN-LAST:event_mnuEditoraActionPerformed
 
     private void mnuGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuGeneroActionPerformed
@@ -154,6 +176,10 @@ public class frmPrincipal extends javax.swing.JFrame {
         friGenero genero = new friGenero();
         genero.setVisible(true);
         desktop.add(genero);
+        try {
+            genero.setSelected(true);
+        } catch (java.beans.PropertyVetoException e) {
+        }
     }//GEN-LAST:event_mnuGeneroActionPerformed
 
     private void mnuCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuCategoriaActionPerformed
@@ -161,6 +187,10 @@ public class frmPrincipal extends javax.swing.JFrame {
         friCategoria categoria = new friCategoria();
         categoria.setVisible(true);
         desktop.add(categoria);
+        try {
+            categoria.setSelected(true);
+        } catch (java.beans.PropertyVetoException e) {
+        }
     }//GEN-LAST:event_mnuCategoriaActionPerformed
 
     private void mnuAutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuAutorActionPerformed
@@ -168,6 +198,10 @@ public class frmPrincipal extends javax.swing.JFrame {
         friAutor autor = new friAutor();
         autor.setVisible(true);
         desktop.add(autor);
+        try {
+            autor.setSelected(true);
+        } catch (java.beans.PropertyVetoException e) {
+        }
     }//GEN-LAST:event_mnuAutorActionPerformed
 
     private void mnuLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuLivroActionPerformed
@@ -175,7 +209,20 @@ public class frmPrincipal extends javax.swing.JFrame {
         friLivro livro = new friLivro();
         livro.setVisible(true);
         desktop.add(livro);
+        try {
+            livro.setSelected(true);
+        } catch (java.beans.PropertyVetoException e) {}
     }//GEN-LAST:event_mnuLivroActionPerformed
+
+    private void mnuVolumeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuVolumeActionPerformed
+        // chamara o formulário interno Volume dentro painel desktop
+        friVolume volume = new friVolume();
+        volume.setVisible(true);
+        desktop.add(volume);
+        try{
+            volume.setSelected(true);
+        }catch(java.beans.PropertyVetoException e){}
+    }//GEN-LAST:event_mnuVolumeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -215,15 +262,18 @@ public class frmPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar Menu;
     private javax.swing.JDesktopPane desktop;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenu mnuAjuda;
     private javax.swing.JMenuItem mnuAutor;
     private javax.swing.JMenu mnuCadastro;
     private javax.swing.JMenuItem mnuCategoria;
+    private javax.swing.JMenu mnuConsulta;
     private javax.swing.JMenuItem mnuEditora;
     private javax.swing.JMenuItem mnuGenero;
     private javax.swing.JMenuItem mnuLivro;
     private javax.swing.JMenu mnuOpcoes;
     private javax.swing.JMenuItem mnuSair;
     private javax.swing.JMenuItem mnuSobre;
+    private javax.swing.JMenuItem mnuVolume;
     // End of variables declaration//GEN-END:variables
 }

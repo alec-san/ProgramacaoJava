@@ -43,6 +43,9 @@ public class friGenero extends javax.swing.JInternalFrame {
         btnRemoverGenero = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbGenero = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txaDescricao = new javax.swing.JTextArea();
 
         setClosable(true);
         setIconifiable(true);
@@ -53,7 +56,7 @@ public class friGenero extends javax.swing.JInternalFrame {
 
         txtIdGenero.setEnabled(false);
 
-        jLabel3.setText("Genero:");
+        jLabel3.setText("Nome:");
 
         btnLimparCampos.setText("Limpar");
         btnLimparCampos.addActionListener(new java.awt.event.ActionListener() {
@@ -93,7 +96,7 @@ public class friGenero extends javax.swing.JInternalFrame {
                 {null, null, null}
             },
             new String [] {
-                "Código", "Categoria", "Genero"
+                "Código", "Nome", "Descrição"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -115,6 +118,12 @@ public class friGenero extends javax.swing.JInternalFrame {
             tbGenero.getColumnModel().getColumn(0).setMaxWidth(50);
         }
 
+        jLabel2.setText("Descrição:");
+
+        txaDescricao.setColumns(20);
+        txaDescricao.setRows(5);
+        jScrollPane2.setViewportView(txaDescricao);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -123,26 +132,29 @@ public class friGenero extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addGap(40, 40, 40)
+                        .addComponent(btnLimparCampos)
                         .addGap(18, 18, 18)
-                        .addComponent(txtIdGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
+                        .addComponent(btnCadastrarGenero)
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnLimparCampos)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnCadastrarGenero)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnEditarGenero)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnRemoverGenero))
-                            .addComponent(txtNomeGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(62, Short.MAX_VALUE))
+                        .addComponent(btnEditarGenero)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnRemoverGenero))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(jLabel2)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jScrollPane2))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel1)
+                                .addComponent(jLabel3))
+                            .addGap(18, 18, 18)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtNomeGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtIdGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -152,10 +164,14 @@ public class friGenero extends javax.swing.JInternalFrame {
                     .addComponent(jLabel1)
                     .addComponent(txtIdGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txtNomeGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(21, 21, 21)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnLimparCampos)
                     .addComponent(btnCadastrarGenero)
@@ -163,7 +179,7 @@ public class friGenero extends javax.swing.JInternalFrame {
                     .addComponent(btnRemoverGenero))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 110, Short.MAX_VALUE))
+                .addGap(48, 48, 48))
         );
 
         pack();
@@ -187,9 +203,11 @@ public class friGenero extends javax.swing.JInternalFrame {
         DefaultTableModel tabela = (DefaultTableModel) tbGenero.getModel();
         String cmpCodigo = tabela.getValueAt(tbGenero.getSelectedRow(), 0).toString();
         String cmpTipo = tabela.getValueAt(tbGenero.getSelectedRow(), 1).toString();
+        String cmpDescricao = tabela.getValueAt(tbGenero.getSelectedRow(), 2).toString();
 
         txtIdGenero.setText(cmpCodigo);
         txtNomeGenero.setText(cmpTipo);
+        txaDescricao.setText(cmpDescricao);
 
         btnCadastrarGenero.setEnabled(false);
         btnEditarGenero.setEnabled(true);
@@ -221,6 +239,7 @@ public class friGenero extends javax.swing.JInternalFrame {
         //limpa os campos textfield
         txtIdGenero.setText("");
         txtNomeGenero.setText("");
+        txaDescricao.setText("");
         //habilita e desabilita botões.
         btnCadastrarGenero.setEnabled(true);
         btnEditarGenero.setEnabled(false);
@@ -237,7 +256,8 @@ public class friGenero extends javax.swing.JInternalFrame {
             for (int i = 0; i < lista.size(); i++) {
                 tabela.addRow(new Object[]{
                     lista.get(i).getId(),
-                    lista.get(i).getTipo()
+                    lista.get(i).getNome(),
+                    lista.get(i).getDescricao()
                 });
             }
         } catch (Exception erro) {
@@ -248,8 +268,11 @@ public class friGenero extends javax.swing.JInternalFrame {
     public void cadastrarGenero() {
 
         String nomeGenero = txtNomeGenero.getText();
+        String descricaoGenero = txaDescricao.getText();
+        
         GeneroDTO generoDto = new GeneroDTO();
-        generoDto.setTipo(nomeGenero);
+        generoDto.setNome(nomeGenero);
+        generoDto.setDescricao(descricaoGenero);
 
         GeneroDAO generoDao = new GeneroDAO();
         generoDao.CadastrarGenero(generoDto);
@@ -261,11 +284,13 @@ public class friGenero extends javax.swing.JInternalFrame {
         Long idGenero = Long.parseLong(txtIdGenero.getText());
         //long idCat = idCategoria.get(cmbCategoria.getSelectedIndex() - 1);
         String nomeGenero = txtNomeGenero.getText();
+        String descricaoGenero = txaDescricao.getText();
 
         GeneroDTO generoDto = new GeneroDTO();
         generoDto.setId(idGenero);
         //generoDto.setIdCat(idCat);
-        generoDto.setTipo(nomeGenero);
+        generoDto.setNome(nomeGenero);
+        generoDto.setDescricao(descricaoGenero);
 
         GeneroDAO generoDao = new GeneroDAO();
         generoDao.AtualizarGenero(generoDto);
@@ -289,9 +314,12 @@ public class friGenero extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnLimparCampos;
     private javax.swing.JButton btnRemoverGenero;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tbGenero;
+    private javax.swing.JTextArea txaDescricao;
     private javax.swing.JTextField txtIdGenero;
     private javax.swing.JTextField txtNomeGenero;
     // End of variables declaration//GEN-END:variables

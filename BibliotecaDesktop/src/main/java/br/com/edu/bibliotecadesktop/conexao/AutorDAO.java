@@ -27,17 +27,17 @@ public class AutorDAO {
     public ArrayList<AutorDTO> PesquisarAutor() {
 
         conn = new ConexaoDAO().connectaBD(); // abre a conexão com o banco de dados.
-
-        String sql = "select * from tbautor";
+        String sql = "SELECT * FROM autores";
         try {
             pstm = conn.prepareStatement(sql); //prepara a consulta com a string da linha acima
             rs = pstm.executeQuery(); // executa a query
 
             while (rs.next()) {
                 AutorDTO objAutorDTO = new AutorDTO();
-                objAutorDTO.setId(rs.getLong("idAutor")); //obtem a identificação do autor no banco de dados
-                objAutorDTO.setNome(rs.getString("nomeAutor"));
-                objAutorDTO.setPseudonimo(rs.getString("pseudonimoAutor"));
+                objAutorDTO.setId(rs.getLong("AutorID")); //obtem a identificação do autor no banco de dados
+                objAutorDTO.setNome(rs.getString("Nome"));
+                objAutorDTO.setPseudonimo(rs.getString("Pseudonimo"));
+                objAutorDTO.setNacionalidade(rs.getString("Nacionalidade"));
                 lista.add(objAutorDTO);
             }
             pstm.close();
@@ -50,12 +50,13 @@ public class AutorDAO {
     public void CadastrarAutor(AutorDTO objAutorDTO) {
 
         conn = new ConexaoDAO().connectaBD();
-        String sqlInsert = "insert into tbautor (nomeAutor, pseudonimoAutor) values (?,?)";
+        String sqlInsert = "INSERT INTO autores (Nome, Pseudonimo, Nacionalidade) values (?,?,?)";
 
         try {
             pstm = conn.prepareStatement(sqlInsert);
             pstm.setString(1, objAutorDTO.getNome());
             pstm.setString(2, objAutorDTO.getPseudonimo());
+            pstm.setString(3, objAutorDTO.getNacionalidade());
             pstm.execute();
             pstm.close();
         } catch (SQLException erro) {
@@ -66,14 +67,14 @@ public class AutorDAO {
     public void AtualizarAutor(AutorDTO objAutorDTO) {
 
         conn = new ConexaoDAO().connectaBD();
-        String sqlUpdate = "update tbautor set nomeAutor = ?, pseudonimoAutor = ? where idAutor=?";
+        String sqlUpdate = "UPDATE autores SET Nome = ?, Pseudonimo = ?, Nacionalidade = ? where AutorID =?";
 
         try {
             pstm = conn.prepareStatement(sqlUpdate);
-
             pstm.setString(1, objAutorDTO.getNome());
             pstm.setString(2, objAutorDTO.getPseudonimo());
-            pstm.setLong(3, objAutorDTO.getId());
+            pstm.setString(3, objAutorDTO.getNacionalidade());
+            pstm.setLong(4, objAutorDTO.getId());
 
             pstm.execute();
             pstm.close();
@@ -85,7 +86,7 @@ public class AutorDAO {
     public void RemoverAutor(AutorDTO objAutorDTO) {
 
         conn = new ConexaoDAO().connectaBD();
-        String sql = "DELETE FROM tbautor WHERE idAutor = ?";
+        String sql = "DELETE FROM autores WHERE AutorID = ?";
         try {
             pstm = conn.prepareStatement(sql);
             pstm.setLong(1, objAutorDTO.getId());

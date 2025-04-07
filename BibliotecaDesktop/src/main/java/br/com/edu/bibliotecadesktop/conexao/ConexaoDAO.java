@@ -16,13 +16,13 @@ import javax.swing.JOptionPane;
  * @author Alecksandre
  */
 public class ConexaoDAO {
-    
-        public Connection connectaBD(){
-        
+
+    public Connection connectaBD() {
+
         Connection conexao = null;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conexao = DriverManager.getConnection("jdbc:mysql://localhost/dbbiblioteca","root","root");
+            conexao = DriverManager.getConnection("jdbc:mysql://localhost/bibliotecadb", "root", "root");
         } catch (SQLException erro) {
             JOptionPane.showMessageDialog(null, erro.getMessage());
         } catch (ClassNotFoundException ex) {
@@ -30,5 +30,5 @@ public class ConexaoDAO {
         }
         return conexao;
     }
-    
+
 }

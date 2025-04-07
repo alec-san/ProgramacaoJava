@@ -8,17 +8,36 @@ package br.com.edu.bibliotecadesktop.dto;
  *
  * @author Alecksandre
  */
-public class CategoriaDTO {
+public class VolumeDTO {
     
-    public Long id;
+    public long id;
+    public String Volume;
+    public Double Preco;
+    
     public String nome;
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
+    }
+
+    public String getVolume() {
+        return Volume;
+    }
+
+    public void setVolume(String Volume) {
+        this.Volume = Volume;
+    }
+
+    public Double getPreco() {
+        return Preco;
+    }
+
+    public void setPreco(Double Preco) {
+        this.Preco = Preco;
     }
 
     public String getNome() {

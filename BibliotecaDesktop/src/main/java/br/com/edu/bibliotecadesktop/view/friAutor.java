@@ -44,6 +44,8 @@ public class friAutor extends javax.swing.JInternalFrame {
         btnRemoverAutor = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbAutor = new javax.swing.JTable();
+        jLabel4 = new javax.swing.JLabel();
+        txtNacionalidade = new javax.swing.JTextField();
 
         setClosable(true);
         setIconifiable(true);
@@ -92,17 +94,17 @@ public class friAutor extends javax.swing.JInternalFrame {
 
         tbAutor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Código", "Nome", "Pseudonimo"
+                "Código", "Nome", "Pseudonimo", "Nacionalidade"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -120,6 +122,8 @@ public class friAutor extends javax.swing.JInternalFrame {
             tbAutor.getColumnModel().getColumn(0).setMaxWidth(50);
         }
 
+        jLabel4.setText("Nacionalidade:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -127,13 +131,20 @@ public class friAutor extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 528, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
                             .addComponent(jLabel2)
-                            .addComponent(jLabel3))
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNacionalidade, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtNomeAutor)
+                                .addComponent(txtPseudonimo, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtIdAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnLimpar)
                                 .addGap(18, 18, 18)
@@ -141,30 +152,29 @@ public class friAutor extends javax.swing.JInternalFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(btnEditarAutor)
                                 .addGap(18, 18, 18)
-                                .addComponent(btnRemoverAutor))
-                            .addComponent(txtNomeAutor, javax.swing.GroupLayout.DEFAULT_SIZE, 375, Short.MAX_VALUE)
-                            .addComponent(txtPseudonimo)
-                            .addComponent(txtIdAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(3, 3, 3)))
-                .addContainerGap(79, Short.MAX_VALUE))
+                                .addComponent(btnRemoverAutor)))))
+                .addContainerGap(82, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtIdAutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtIdAutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtNomeAutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtPseudonimo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtNomeAutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtPseudonimo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtNacionalidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnLimpar)
@@ -172,8 +182,8 @@ public class friAutor extends javax.swing.JInternalFrame {
                     .addComponent(btnEditarAutor)
                     .addComponent(btnRemoverAutor))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(138, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(58, Short.MAX_VALUE))
         );
 
         pack();
@@ -212,10 +222,12 @@ public class friAutor extends javax.swing.JInternalFrame {
         String cmpCodigo = tabela.getValueAt(tbAutor.getSelectedRow(), 0).toString();
         String cmpNome = tabela.getValueAt(tbAutor.getSelectedRow(), 1).toString();
         String cmpPseudo = tabela.getValueAt(tbAutor.getSelectedRow(), 2).toString();
+        String cmpNacio = tabela.getValueAt(tbAutor.getSelectedRow(), 3).toString();
 
         txtIdAutor.setText(cmpCodigo);
         txtNomeAutor.setText(cmpNome);
         txtPseudonimo.setText(cmpPseudo);
+        txtNacionalidade.setText(cmpNacio);
 
         btnCadastrarAutor.setEnabled(false);
         btnEditarAutor.setEnabled(true);
@@ -227,6 +239,7 @@ public class friAutor extends javax.swing.JInternalFrame {
         txtIdAutor.setText("");
         txtNomeAutor.setText("");
         txtPseudonimo.setText("");
+        txtNacionalidade.setText("");
         btnCadastrarAutor.setEnabled(true);
         btnEditarAutor.setEnabled(false);
         btnRemoverAutor.setEnabled(false);
@@ -242,7 +255,9 @@ public class friAutor extends javax.swing.JInternalFrame {
             tabela.addRow(new Object[]{
                 lista.get(i).getId(),
                 lista.get(i).getNome(),
-                lista.get(i).getPseudonimo()
+                lista.get(i).getPseudonimo(),
+                lista.get(i).getNacionalidade()
+                    
             });
         }
     }
@@ -251,10 +266,12 @@ public class friAutor extends javax.swing.JInternalFrame {
 
         String nomeAutor = txtNomeAutor.getText();
         String pseudoAutor = txtPseudonimo.getText();
+        String nacionalidade = txtNacionalidade.getText();
 
         AutorDTO autorDto = new AutorDTO();
         autorDto.setNome(nomeAutor);
         autorDto.setPseudonimo(pseudoAutor);
+        autorDto.setNacionalidade(nacionalidade);
 
         AutorDAO autorDao = new AutorDAO();
         autorDao.CadastrarAutor(autorDto);
@@ -265,11 +282,13 @@ public class friAutor extends javax.swing.JInternalFrame {
         Long idAutor = Long.parseLong(txtIdAutor.getText());
         String nomeAutor = txtNomeAutor.getText();
         String pseudoAutor = txtPseudonimo.getText();
+        String nacionalidade= txtNacionalidade.getText();
 
         AutorDTO autorDto = new AutorDTO();
         autorDto.setId(idAutor);
         autorDto.setNome(nomeAutor);
         autorDto.setPseudonimo(pseudoAutor);
+        autorDto.setNacionalidade(nacionalidade);
 
         AutorDAO autorDao = new AutorDAO();
         autorDao.AtualizarAutor(autorDto);
@@ -294,9 +313,11 @@ public class friAutor extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tbAutor;
     private javax.swing.JTextField txtIdAutor;
+    private javax.swing.JTextField txtNacionalidade;
     private javax.swing.JTextField txtNomeAutor;
     private javax.swing.JTextField txtPseudonimo;
     // End of variables declaration//GEN-END:variables

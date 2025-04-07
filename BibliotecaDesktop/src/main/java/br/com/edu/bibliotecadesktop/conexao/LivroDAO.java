@@ -95,18 +95,7 @@ public class LivroDAO {
     }
 
     public void RemoverLivro(LivroDTO objLivroDTO) {
-        /*
-                conn = new ConexaoDAO().connectaBD();
-        String sql = "DELETE FROM tbgenero WHERE idGenero = ?";
-        try {
-            pstm = conn.prepareStatement(sql);
-            pstm.setLong(1, objGeneroDTO.getId());
-            pstm.execute();
-            pstm.close();
-        } catch (SQLException erro) {
-            JOptionPane.showMessageDialog(null, "GeneroDAO deletar: " + erro.getMessage());
-        }
-         */
+ 
         conn = new ConexaoDAO().connectaBD();
         String sql = "DELETE FROM tblivro WHERE idLivro = ?";
         try {
@@ -117,6 +106,6 @@ public class LivroDAO {
         } catch (SQLException erro) {
             JOptionPane.showMessageDialog(null, "LivroDAO deletar livro: " + erro.getMessage());
         }        
-
     }
+    
 }

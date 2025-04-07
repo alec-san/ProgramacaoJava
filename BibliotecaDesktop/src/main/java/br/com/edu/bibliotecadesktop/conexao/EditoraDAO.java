@@ -25,27 +25,27 @@ public class EditoraDAO {
 
     public ArrayList<EditoraDTO> PesquisarEditora() {
         conn = new ConexaoDAO().connectaBD();
-        String sql = "select * from tbeditora";
+        String sql = "SELECT * FROM editoras";
         try {
             pstm = conn.prepareStatement(sql);
             rs = pstm.executeQuery();
             while (rs.next()) {
                 EditoraDTO objEditoraDTO = new EditoraDTO();
-                if (rs.getString("nomeEditora") != null) {      //não mostrar conteúdo vazio
-                    objEditoraDTO.setId(rs.getLong("idEditora"));
-                    objEditoraDTO.setNome(rs.getString("nomeEditora"));
+                if (rs.getString("Nome") != null) {      //não mostrar conteúdo vazio
+                    objEditoraDTO.setId(rs.getLong("EditoraID"));
+                    objEditoraDTO.setNome(rs.getString("Nome"));
                     lista.add(objEditoraDTO);
                 }
             }
         } catch (SQLException erro) {
-            JOptionPane.showMessageDialog(null, "EditoraDao pesquisar: " + erro.getMessage());
+            JOptionPane.showMessageDialog(null, "EditoraDao listar: " + erro.getMessage());
         }
         return lista;
     }
 
     public void CadastrarEditora(EditoraDTO objEditoraDTO) {
         conn = new ConexaoDAO().connectaBD();
-        String sql = "insert into tbeditora (nomeEditora) values (?)";
+        String sql = "INSERT INTO editoraS (Nome) VALUES (?)";
         try {
             pstm = conn.prepareStatement(sql);
             pstm.setString(1, objEditoraDTO.getNome());
@@ -58,7 +58,7 @@ public class EditoraDAO {
 
     public void AtualizarEditora(EditoraDTO objEditoraDTO) {
         conn = new ConexaoDAO().connectaBD();
-        String sql = "update tbeditora set nomeEditora = ? where idEditora = ?";
+        String sql = "UPDATE editoras SET Nome = ? WHERE EditoraID = ?";
         try {
             pstm = conn.prepareStatement(sql);
             pstm.setString(1, objEditoraDTO.getNome());
@@ -72,7 +72,7 @@ public class EditoraDAO {
 
     public void DeletarEditora(EditoraDTO objEditoraDTO) {
         conn = new ConexaoDAO().connectaBD();
-        String sql = "DELETE FROM tbeditora WHERE idEditora = ?";
+        String sql = "DELETE FROM editoras WHERE EditoraID = ?";
         try {
             pstm = conn.prepareStatement(sql);
             pstm.setLong(1, objEditoraDTO.getId());

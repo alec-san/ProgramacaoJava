@@ -27,15 +27,15 @@ public class CategoriaDAO {
     public ArrayList<CategoriaDTO> PesquisarCategoria() {
 
         conn = new ConexaoDAO().connectaBD();
-        String sql = "select * from tbcategoria";
+        String sql = "SELECT * FROM categorias";
 
         try {
             pstm = conn.prepareStatement(sql);
             rs = pstm.executeQuery();
             while (rs.next()) {
                 CategoriaDTO objCategoriaDTO = new CategoriaDTO();
-                objCategoriaDTO.setId(rs.getLong("idCategoria"));
-                objCategoriaDTO.setTipo(rs.getString("tipoCategoria"));
+                objCategoriaDTO.setId(rs.getLong("CategoriaID"));
+                objCategoriaDTO.setNome(rs.getString("Nome"));
                 lista.add(objCategoriaDTO);
             }
         } catch (SQLException erro) {
@@ -47,11 +47,11 @@ public class CategoriaDAO {
     public void CadastrarCategoria(CategoriaDTO objCategoriaDTO) {
 
         conn = new ConexaoDAO().connectaBD();
-        String sql = "INSERT INTO tbcategoria(tipoCategoria) VALUES (?)";
+        String sql = "INSERT INTO categorias(Nome) VALUES (?)";
 
         try {
             pstm = conn.prepareStatement(sql);
-            pstm.setString(1, objCategoriaDTO.getTipo());
+            pstm.setString(1, objCategoriaDTO.getNome());
             pstm.execute();
             pstm.close();
         } catch (SQLException erro) {
@@ -62,11 +62,11 @@ public class CategoriaDAO {
     public void AtualizarCategoria(CategoriaDTO objCategoriaDTO) {
 
         conn = new ConexaoDAO().connectaBD();
-        String sql = "UPDATE tbcategoria SET tipoCategoria = ? where idCategoria = ?";
+        String sql = "UPDATE categorias SET Nome = ? where CategoriaID = ?";
 
         try {
             pstm = conn.prepareStatement(sql);
-            pstm.setString(1, objCategoriaDTO.getTipo());
+            pstm.setString(1, objCategoriaDTO.getNome());
             pstm.setLong(2, objCategoriaDTO.getId());
             pstm.execute();
             pstm.close();
@@ -78,7 +78,7 @@ public class CategoriaDAO {
     public ResultSet listarCategoria() {
 
         conn = new ConexaoDAO().connectaBD();
-        String sql = "SELECT * FROM tbcategoria";
+        String sql = "SELECT * FROM categorias";
 
         try {
             pstm = conn.prepareStatement(sql);
@@ -92,7 +92,7 @@ public class CategoriaDAO {
 
     public void DeletarCategoria(CategoriaDTO objCategoria) {
         conn = new ConexaoDAO().connectaBD();
-        String sql = "DELETE FROM tbcategoria WHERE idcategoria = ?";
+        String sql = "DELETE FROM categorias WHERE CategoriaID = ?";
         try {
             pstm = conn.prepareStatement(sql);
             pstm.setLong(1, objCategoria.getId());

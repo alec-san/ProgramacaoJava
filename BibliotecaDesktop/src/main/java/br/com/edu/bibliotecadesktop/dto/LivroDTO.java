@@ -13,14 +13,11 @@ public class LivroDTO {
     public long id;
     public String nome;
     public long idEditora; 
-    public long idAutor;
     public long idCategoria;
-    public long idGenero;
+    public int publicacao;
     
     public String nomeEditora;
-    public String nomeAutor;
     public String tipoCategoria;
-    public String tipoGenero;
 
     public long getId() {
         return id;
@@ -36,14 +33,6 @@ public class LivroDTO {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public long getIdAutor() {
-        return idAutor;
-    }
-
-    public void setIdAutor(long idAutor) {
-        this.idAutor = idAutor;
     }
 
     public long getIdCategoria() {
@@ -70,14 +59,6 @@ public class LivroDTO {
         this.nomeEditora = nomeEditora;
     }
 
-    public String getNomeAutor() {
-        return nomeAutor;
-    }
-
-    public void setNomeAutor(String nomeAutor) {
-        this.nomeAutor = nomeAutor;
-    }
-
     public String getTipoCategoria() {
         return tipoCategoria;
     }
@@ -86,19 +67,12 @@ public class LivroDTO {
         this.tipoCategoria = tipoCategoria;
     }
 
-    public long getIdGenero() {
-        return idGenero;
+    public int getPublicacao() {
+        return publicacao;
     }
 
-    public void setIdGenero(long idGenero) {
-        this.idGenero = idGenero;
+    public void setPublicacao(int publicacao) {
+        this.publicacao = publicacao;
     }
-
-    public String getTipoGenero() {
-        return tipoGenero;
-    }
-
-    public void setTipoGenero(String tipoGenero) {
-        this.tipoGenero = tipoGenero;
-    }
+    
 }

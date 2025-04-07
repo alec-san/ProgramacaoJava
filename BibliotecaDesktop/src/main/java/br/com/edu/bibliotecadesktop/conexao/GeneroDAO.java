@@ -25,15 +25,16 @@ public class GeneroDAO {
 
     public ArrayList<GeneroDTO> PesquisarGenero() {
         conn = new ConexaoDAO().connectaBD();
-        String sql = "SELECT * FROM tbgenero";
+        String sql = "SELECT * FROM generos";
 
         try {
             pstm = conn.prepareStatement(sql);
             rs = pstm.executeQuery();
             while (rs.next()) {
                 GeneroDTO objGeneroDTO = new GeneroDTO();
-                objGeneroDTO.setId(rs.getLong("idGenero"));
-                objGeneroDTO.setTipo(rs.getString("tipoGenero"));
+                objGeneroDTO.setId(rs.getLong("GeneroID"));
+                objGeneroDTO.setNome(rs.getString("Nome"));
+                objGeneroDTO.setDescricao(rs.getString("Descricao"));
                 lista.add(objGeneroDTO);
             }
             rs.close();
@@ -45,10 +46,11 @@ public class GeneroDAO {
 
     public void CadastrarGenero(GeneroDTO objGeneroDTO) {
         conn = new ConexaoDAO().connectaBD();
-        String sql = "INSERT INTO tbgenero(tipoGenero) VALUES (?)";
+        String sql = "INSERT INTO generos(Nome, Descricao) VALUES (?,?)";
         try {
             pstm = conn.prepareStatement(sql);
-            pstm.setString(1, objGeneroDTO.getTipo());
+            pstm.setString(1, objGeneroDTO.getNome());
+            pstm.setString(2, objGeneroDTO.getDescricao());
             pstm.execute();
             pstm.close();
         } catch (SQLException erro) {
@@ -58,22 +60,23 @@ public class GeneroDAO {
 
     public void AtualizarGenero(GeneroDTO objGeneroDTO) {
         conn = new ConexaoDAO().connectaBD();
-        String sql = "UPDATE tbgenero SET tipoGenero = ? WHERE idGenero = ? ";
+        String sql = "UPDATE generos SET Nome = ?, Descricao = ? WHERE GeneroID = ? ";
         try {
             pstm = conn.prepareStatement(sql);
-            pstm.setString(1, objGeneroDTO.getTipo());
-            pstm.setLong(2, objGeneroDTO.getId());
+            pstm.setString(1, objGeneroDTO.getNome());
+            pstm.setString(2, objGeneroDTO.getDescricao());
+            pstm.setLong(3, objGeneroDTO.getId());
             pstm.execute();
             pstm.close();
         } catch (SQLException erro) {
-            JOptionPane.showMessageDialog(null, "GeneroDAO cadastrar: " + erro.getMessage());
+            JOptionPane.showMessageDialog(null, "GeneroDAO atualizar: " + erro.getMessage());
         }
     }
 
     public void RemoverGenero(GeneroDTO objGeneroDTO) {
 
         conn = new ConexaoDAO().connectaBD();
-        String sql = "DELETE FROM tbgenero WHERE idGenero = ?";
+        String sql = "DELETE FROM generos WHERE GeneroID = ?";
         try {
             pstm = conn.prepareStatement(sql);
             pstm.setLong(1, objGeneroDTO.getId());
